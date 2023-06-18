@@ -17,15 +17,7 @@
 <body>
     <header>
         <h1>L'OBS</h1>
-        <nav>
-            <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="">POLITIQUE</a></li>
-                <li><a href="">IMMOBILIER</a></li>
-                <li><a href="">ADMINISTRACIJA</a></li>
-                <li><a href="unos.html">DODAVANJE CLANKA</a></li>
-            </ul>
-        </nav>
+        <?php include("nav.php")?>
     </header>
     <hr>
     <main>
