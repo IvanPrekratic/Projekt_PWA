@@ -83,10 +83,18 @@ section h2{
     text-align: center;
 }
 
+section a {
+    display: flex;
+    width: 30%;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+}
+
 section article {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
     background-color: white;
 }
 
@@ -105,7 +113,7 @@ article img{
     justify-content: space-between;
 }
 h3.naslov-clanka {
-    font-size: medium;
+    font-size: 15px;
     margin: -15px 0 0 0;
     padding: 5px 10px 5px 10px;
     width: 85%;
@@ -124,6 +132,7 @@ h3.naslov-clanka {
 
 p.tekst-ispod-clanka {
     margin: 0 0 5px 0;
+    text-align: center;
     font-size: small;
     color: #999999;
 }
@@ -138,4 +147,57 @@ footer p {
     text-align: center;
     font-size: small;
     color: #999999;
+}
+h2.naslov-clanka {
+    width: 85%;
+    font-family: 'Cantata One', serif;
+    text-align: left;
+    margin-top: 0;
+
+}
+p.putanja {
+    align-self: flex-start;
+    text-align: left;
+    margin-bottom: 10px;
+}
+img.img-clanak {
+    width: 70%;
+    align-self: flex-start;
+}
+div.vrijeme-objave{
+    border-color: #999999;
+    border-width: 0.5px;
+    border-style: solid;
+    width: 100%;
+}
+p.vr-obj {
+    margin:  3px;
+}
+p.kratki-opis{
+    font-size: larger;
+    font-family: 'Cantata One', serif;
+    align-self: flex-start;
+}
+.tekst-clanka p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: medium;
+    align-self: flex-start;
+}
+div.tekst-clanka{
+    width: 100%;
+}
+form.form-news{
+    width: 60%;
+}
+.form-news div{
+    margin-top: 10px;
+}
+div.form-field{
+    margin-top: 0;
+}
+div.form-checkbox{
+    margin-top: 0;
+}
+.form-field-textual{
+    width: 100%;
 }
