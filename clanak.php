@@ -23,22 +23,27 @@
     <hr>
 
     <main>
-        <p class="putanja">L'Obs > Immobilier</p>
-        <h2 class="naslov-clanka">A Nancy, un horizonn immobilier radiex</h2>
-        <img src="img/nancy-rs.jpg" alt="nancy" class="img-clanak">
-        <p class="kratki-opis">neki sazetak clanka</p>
-        <div class="vrijeme-objave">
-            <p class="vr-obj">Publie le 16 mai 2019 a 07h00</p>
-        </div>
-        <div class="tekst-clanka">
-            <p>tekst clanka</p>
-            <p>drugi tekst clanka</p>
-            <p>treci tekst clanka</p>
-        </div>
 
+        <?php
+        include("connect.php");
+        define('UPLPATH', 'img/');
+        if (isset($_GET['id'])) {
+            $id = (int)$_GET['id'];
+        }
 
-
-
+        $query = "SELECT * FROM vijesti WHERE id = $id";
+        $result = mysqli_query($dbc, $query);
+        $row = mysqli_fetch_array($result);
+        echo '<p class="putanja"' . ">L'Obs > " . $row['kategorija'] . "</p>";
+        echo '<h2 class="naslov-clanka">' . $row['naslov'] . '</h2>';
+        echo '<img src="img/' . $row['slika'] . '" class="img-clanak">';
+        echo '<p class="kratki-opis">' . $row['sazetak'] . '</p>';
+        echo '<div class="vrijeme-objave">
+            <p class="vr-obj">Objavljeno ' . $row['datum'] . '</p> </div>';
+        echo '<div class="tekst-clanka">
+            <p>' . $row['tekst'] . '</p>
+        </div>'
+        ?>
 
     </main>
     <footer>

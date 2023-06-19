@@ -31,7 +31,7 @@
                 $result = mysqli_query($dbc, $query);
                 $i = 0;
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '<a href="">';
+                    echo '<a href="clanak.php?id='.$row['id'].'">';
                     echo '<article class="clanak">';
                     echo '<img src="' . UPLPATH . $row['slika'] . '">';
                     echo '<div class="nositelj-h3">';
@@ -54,7 +54,7 @@
                 $result = mysqli_query($dbc, $query);
                 $i = 0;
                 while ($row = mysqli_fetch_array($result)) {
-                    echo '<a href="">';
+                    echo '<a href="clanak.php?id='.$row['id'].'">';
                     echo '<article class="clanak">';
                     echo '<img src="' . UPLPATH . $row['slika'] . '">';
                     echo '<div class="nositelj-h3">';
