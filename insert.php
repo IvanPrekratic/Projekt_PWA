@@ -16,4 +16,5 @@ move_uploaded_file($_FILES["picture"]["tmp_name"], $target_dir);
 $query = "INSERT INTO Vijesti (datum, naslov, sazetak, tekst, slika, kategorija, arhiva ) VALUES ('$date', '$title', '$about', '$content', '$picture', '$category', '$archive')"; 
 $result = mysqli_query($dbc, $query) or die('Error querying databese.'); 
 mysqli_close($dbc); 
+header("Location: index.php");
 ?>

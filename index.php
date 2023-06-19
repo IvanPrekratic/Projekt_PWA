@@ -10,76 +10,64 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cantata+One&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Cantata+One&display=swap" rel="stylesheet">
     <title>Le Nouvel Observateur</title>
 </head>
 
 <body>
     <header>
         <h1>L'OBS</h1>
-        <?php include("nav.php")?>
+        <?php include("nav.php") ?>
     </header>
     <hr>
     <main>
         <section>
-            <h2>POLITIQUE</h2>
+            <h2>POLITIKA</h2>
             <div class="row">
-                <a href=""><article class="clanak">
-                    <img src="img/novak-orban.jpg" alt="Katalin Novak & Viktor Orban">
-                    <div class="nositelj-h3">
-                        <h3 class="naslov-clanka">&lsaquo;&lsaquo;La culture chretienne, la securite,
-                            la famille: voila les valeurs que la Hongrie veut proteger&rsaquo;&rsaquo;</h3>
-                        <p class="tekst-ispod-clanka">Monde - Publie il y a 3 heures</p>
-                    </div>
-                </article></a>
-                
-                <a href=""><article class="clanak">
-                    <img src="img/austria.jpg" alt="Austria droite">
-                    <div class="nositelj-h3">
-                        <h3 class="naslov-clanka">&lsaquo;&lsaquo;Les Europeens, ce n'est pas probleme
-                            &rsaquo;&rsaquo;: en Austriche, une extreme droite banalisee</h3>
-                        <p class="tekst-ispod-clanka">Monde - Publie il y a 18 heures</p>
-                    </div>
-                </article></a>
-                
-                <a href=""><article class="clanak">
-                    <img src="img/vampires.jpg" alt="Vampires">
-                    <div class="nositelj-h3">
-                        <h3 class="naslov-clanka">L'Europe, proie des vampires du populisme</h3>
-                        <p class="tekst-ispod-clanka">Edito - Publie il y a 19 heures</p>
-                    </div>
-                </article></a>
-                
+                <?php
+                include 'connect.php';
+                define('UPLPATH', 'img/');
+                $query = "SELECT * FROM vijesti WHERE arhiva=0 AND kategorija='Politika' LIMIT 3";
+                $result = mysqli_query($dbc, $query);
+                $i = 0;
+                while ($row = mysqli_fetch_array($result)) {
+                    echo '<a href="">';
+                    echo '<article class="clanak">';
+                    echo '<img src="' . UPLPATH . $row['slika'] . '">';
+                    echo '<div class="nositelj-h3">';
+                    echo '<h3 class="naslov-clanka">';
+                    echo $row['naslov'];
+                    echo '</h3>';
+                    echo '<p class="tekst-ispod-clanka">' . $row['datum'] . '</p>';
+                    echo '</div></article>';
+                    echo '</a>';
+                } ?>
+
             </div>
         </section>
         <section>
-            <h2>IMMOBILIER</h2>
+            <h2>SPORT</h2>
             <div class="row">
-                <a href=""><article class="clanak">
-                    <img src="img/haut-rhin.jpg" alt="Katalin Novak & Viktor Orban">
-                    <div class="nositelj-h3">
-                        <h3 class="naslov-clanka">Haut-Rihtn: entre Colmar et Mulhouse, les hauts et les bas du marche immobilier</h3>
-                        <p class="tekst-ispod-clanka">Immobilier - Publie il y a 3 heures</p>
-                    </div>
-                </article></a>
-                
-                <a href=""><article class="clanak">
-                    <img src="img/Meuse.jpg" alt="Austria droite">
-                    <div class="nositelj-h3">
-                        <h3 class="naslov-clanka">Dans la Meuse et les Vosges, la grisaille immobiliere</h3>
-                        <p class="tekst-ispod-clanka">Immobilier - Publie il y a 3 heures</p>
-                    </div>
-                </article></a>
-                
-                <a href=""><article class="clanak">
-                    <img src="img/nancy-rs.jpg" alt="Vampires">
-                    <div class="nositelj-h3">
-                        <h3 class="naslov-clanka">A Nancy, un horizonn immobilier radiex</h3>
-                        <p class="tekst-ispod-clanka">Immobilier - Publie il y a 1 jour</p>
-                    </div>
-                </article></a>
-                
+            <?php
+                include 'connect.php';
+                $query = "SELECT * FROM vijesti WHERE arhiva=0 AND kategorija='Sport' LIMIT 3";
+                $result = mysqli_query($dbc, $query);
+                $i = 0;
+                while ($row = mysqli_fetch_array($result)) {
+                    echo '<a href="">';
+                    echo '<article class="clanak">';
+                    echo '<img src="' . UPLPATH . $row['slika'] . '">';
+                    echo '<div class="nositelj-h3">';
+                    echo '<h3 class="naslov-clanka">';
+                    echo $row['naslov'];
+                    echo '</h3>';
+                    echo '<p class="tekst-ispod-clanka">' . $row['datum'] . '</p>';
+                    echo '</div> </article>';
+                    echo '</a>';
+                } ?>
+
             </div>
+
         </section>
     </main>
     <footer>

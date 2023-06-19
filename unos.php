@@ -53,7 +53,7 @@
         <div class="form-field">
           <select name="category" id="" class="form-field-textual">
             <option value="Sport">Sport</option>
-            <option value="Politik">Politik</option>
+            <option value="Politika">Politika</option>
           </select>
         </div>
       </div>
