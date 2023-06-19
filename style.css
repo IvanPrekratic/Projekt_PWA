@@ -21,7 +21,8 @@ nav {
     align-items: center;
     justify-content: center;
 }
-hr{
+
+hr {
     width: 99%;
     color: #cecece;
 }
@@ -35,8 +36,9 @@ nav ul {
 
 nav li {
     margin-right: 20px;
-    
+
 }
+
 nav a {
     color: black;
     font-family: 'League Gothic', sans-serif;
@@ -76,7 +78,8 @@ main section {
     align-items: center;
     justify-content: center;
 }
-section h2{
+
+section h2 {
     font-family: 'League Gothic', sans-serif;
     letter-spacing: 1.5px;
     width: 100%;
@@ -98,20 +101,22 @@ section article {
     background-color: white;
 }
 
-.clanak{
+.clanak {
     border-style: solid;
     border-color: black;
     border-width: 1px;
 }
 
-article img{
+article img {
     width: 100%;
 }
+
 .row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
 h3.naslov-clanka {
     font-size: 15px;
     margin: -15px 0 0 0;
@@ -121,6 +126,7 @@ h3.naslov-clanka {
     text-align: center;
     background-color: white;
 }
+
 .nositelj-h3 {
     width: 100%;
     background-color: white;
@@ -148,6 +154,7 @@ footer p {
     font-size: small;
     color: #999999;
 }
+
 h2.naslov-clanka {
     width: 85%;
     font-family: 'Cantata One', serif;
@@ -155,49 +162,98 @@ h2.naslov-clanka {
     margin-top: 0;
 
 }
+
 p.putanja {
     align-self: flex-start;
     text-align: left;
     margin-bottom: 10px;
 }
+
 img.img-clanak {
     width: 70%;
     align-self: flex-start;
 }
-div.vrijeme-objave{
+
+div.vrijeme-objave {
     border-color: #999999;
     border-width: 0.5px;
     border-style: solid;
     width: 100%;
 }
+
 p.vr-obj {
-    margin:  3px;
+    margin: 3px;
 }
-p.kratki-opis{
+
+p.kratki-opis {
     font-size: larger;
     font-family: 'Cantata One', serif;
     align-self: flex-start;
 }
+
 .tekst-clanka p {
     font-family: 'Open Sans', sans-serif;
     font-size: medium;
     align-self: flex-start;
 }
-div.tekst-clanka{
+
+div.tekst-clanka {
     width: 100%;
 }
-form.form-news{
+
+form.form-news {
     width: 60%;
 }
-.form-news div{
+
+.form-news div {
     margin-top: 10px;
 }
-div.form-field{
+
+div.form-field {
     margin-top: 0;
 }
-div.form-checkbox{
+
+div.form-checkbox {
     margin-top: 0;
 }
-.form-field-textual{
+
+.form-field-textual {
+    width: 100%;
+}
+
+.clanak-kat {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    display: flex;
+    flex-direction: row;
+}
+
+.slika-kat {
+    width: 50%;
+}
+
+.kratki-opis-kat {
+    font-size: 9px;
+    font-family: 'Cantata One', serif;
+    align-self: center;
+    width: 80%;
+    text-align: justify;
+}
+
+.link-kat {
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.naslov-kat {
+    margin-top: 10px;
+    width: 85%;
+    font-family: 'Cantata One', serif;
+    text-align: center;
+}
+.adm-form{
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 100%;
 }
