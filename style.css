@@ -256,4 +256,6 @@ div.form-checkbox {
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
+    border: 1px solid black;
+    padding: 15px 20px 15px 15px;
 }

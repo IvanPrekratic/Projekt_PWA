@@ -1,3 +1,47 @@
+<?php
+include("connect.php");
+define('UPLPATH', 'img/');
+
+if(isset($_POST['delete'])) { 
+    $id=$_POST['id']; 
+    $query = "DELETE FROM vijesti WHERE id=$id "; 
+    $result = mysqli_query($dbc, $query); 
+    header("Location: administracija.php");
+    exit();
+  }
+  
+  if (isset($_POST['update'])) { 
+    $id = $_POST['id'];
+    $title = $_POST['title'];
+    $about = $_POST['about'];
+    $content = $_POST['content'];
+    $category = $_POST['category'];
+    if (isset($_POST['archive'])) { 
+      $archive = 1; 
+    } else { 
+      $archive = 0; 
+    }
+  
+    if ($_FILES['picture']['name'] != '') {
+      $picture = $_FILES['picture']['name'];
+      $target_dir = 'img/' . $picture;
+      move_uploaded_file($_FILES["picture"]["tmp_name"], $target_dir);
+    } else {
+      $query = "SELECT slika FROM vijesti WHERE id = $id";
+      $result = mysqli_query($dbc, $query);
+      $row = mysqli_fetch_assoc($result);
+      $picture = $row['picture'];
+    }
+  
+    $query = "UPDATE vijesti SET naslov='$title', sazetak='$about', tekst='$content', slika='$picture', kategorija='$category', arhiva='$archive' WHERE id=$id";
+    $query = "UPDATE vijesti SET naslov= ?, sazetak= ?, tekst= ?, slika= ?, kategorija= ?, arhiva= ? WHERE id=$id";
+    $stmt = $dbc->prepare($query);
+    $stmt-> bind_param("ssssds", $title, $about, $content, $picture, $category, $archive);
+    $stmt->execute();
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,8 +70,6 @@
 
         
         <?php
-        include("connect.php");
-        define('UPLPATH', 'img/');
         $query = "SELECT * FROM vijesti";
         $result = mysqli_query($dbc, $query);
         while($row = mysqli_fetch_array($result)) {
@@ -35,7 +77,7 @@
         <div class="form-item"> 
         <div class="form-field">
         <label for="title">Naslov vjesti:</label> 
-        <textarea name="title" cols="30" rows="1" class="form-field-textual edit-input">'.$row['naslov'].'</textarea> 
+        <textarea name="title" id="title" cols="30" rows="1" class="form-field-textual edit-input">'.$row['naslov'].'</textarea> 
         </div> 
         </div> 
         <div class="form-item">
@@ -62,8 +104,8 @@
         <label for="category">Kategorija vijesti:</label> 
         <div class="form-field"> 
         <select name="category" id="" class="form-field-textual"> 
-        <option value="0"'; if ($row['kategorija'] == "Sport") echo ' selected="selected"'; echo '>Sport</option> 
-        <option value="1"'; if ($row['kategorija'] == "Politika") echo ' selected="selected"'; echo '>Politika</option> 
+        <option value="Sport"'; if ($row['kategorija'] == "Sport") echo ' selected="selected"'; echo '>Sport</option> 
+        <option value="Politika"'; if ($row['kategorija'] == "Politika") echo ' selected="selected"'; echo '>Politika</option> 
         </select> 
         </div> 
         </div> 
