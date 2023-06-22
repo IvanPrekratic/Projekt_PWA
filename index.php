@@ -33,6 +33,7 @@
                 $result = mysqli_query($dbc, $query);
                 $i = 0;
                 while ($row = mysqli_fetch_array($result)) {
+                    $datum = date('d.n.Y.', strtotime($row['datum']));
                     echo '<a href="clanak.php?id='.$row['id'].'">';
                     echo '<article class="clanak">';
                     echo '<img src="' . UPLPATH . $row['slika'] . '">';
@@ -40,7 +41,7 @@
                     echo '<h3 class="naslov-clanka">';
                     echo $row['naslov'];
                     echo '</h3>';
-                    echo '<p class="tekst-ispod-clanka">' . $row['datum'] . '</p>';
+                    echo '<p class="tekst-ispod-clanka">Objavljeno: ' . $datum . '</p>';
                     echo '</div></article>';
                     echo '</a>';
                 } ?>
@@ -56,6 +57,7 @@
                 $result = mysqli_query($dbc, $query);
                 $i = 0;
                 while ($row = mysqli_fetch_array($result)) {
+                    $datum = date('d.n.Y.', strtotime($row['datum']));
                     echo '<a href="clanak.php?id='.$row['id'].'">';
                     echo '<article class="clanak">';
                     echo '<img src="' . UPLPATH . $row['slika'] . '">';
@@ -63,7 +65,7 @@
                     echo '<h3 class="naslov-clanka">';
                     echo $row['naslov'];
                     echo '</h3>';
-                    echo '<p class="tekst-ispod-clanka">' . $row['datum'] . '</p>';
+                    echo '<p class="tekst-ispod-clanka">Objavljeno: ' . $datum . '</p>';
                     echo '</div> </article>';
                     echo '</a>';
                 } ?>

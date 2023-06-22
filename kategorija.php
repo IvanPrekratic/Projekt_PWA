@@ -39,6 +39,7 @@ session_start();
                 $i = 0;
                 echo '<h3 class="naslov-kat">' . $kategorija . '</h3>';
                 while ($row = mysqli_fetch_array($result)) {
+                    $datum = date('d.n.Y.', strtotime($row['datum']));
                     echo '<a href="clanak.php?id='.$row['id'].'" class="link-kat">';
                     echo '<article class="clanak-kat">';
                     echo '<img src="' . UPLPATH . $row['slika'] . '" class="slika-kat">';
@@ -47,7 +48,7 @@ session_start();
                     echo $row['naslov'];
                     echo '</h3>';
                     echo '<p class="kratki-opis-kat">' . $row['sazetak'] . '</p>';
-                    echo '<p class="tekst-ispod-clanka">' . $row['datum'] . '</p>';
+                    echo '<p class="tekst-ispod-clanka">Objavljeno: ' . $datum . '</p>';
                     echo '</div></article>';
                     echo '</a>';
                 }

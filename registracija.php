@@ -72,7 +72,7 @@ if (isset($_POST['submitLogin'])) {
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             $user = mysqli_fetch_assoc($result);
-            
+
 
             if ($user && password_verify($passLogin, $user['lozinka'])) {
                 print 'Provjera uspješna';
@@ -107,6 +107,7 @@ if (isset($_POST['submitLogin'])) {
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cantata+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Le Nouvel Observateur</title>
 </head>
 
@@ -117,7 +118,7 @@ if (isset($_POST['submitLogin'])) {
     </header>
     <hr>
     <main>
-        <content>
+        <content class="cont">
             <script type="text/javascript">
                 $(function() {
                     $("form[name='registracija']").validate({
@@ -215,69 +216,72 @@ if (isset($_POST['submitLogin'])) {
                 });
             </script>
 
-            <div class="forms-container">
                 <section class="login-body section-login">
-                    <h1>Registracija</h1>
-                    <form enctype="multipart/form-data" action="" method="POST" class="form-registration" name="registracija">
-                        <div class="form-item">
-                            <label for="title">Ime: </label>
-                            <div class="form-field-label form-field">
-                                <input type="text" name="ime" id="ime" class="form-field-input">
+                    <div class="registracija_cont">
+                        <h1>Registracija</h1>
+                        <form enctype="multipart/form-data" action="" method="POST" class="form-registration" name="registracija">
+                            <div class="form-item">
+                                <label for="title">Ime: </label>
+                                <div class="form-field-label form-field">
+                                    <input type="text" name="ime" id="ime" class="form-field-input">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="about">Prezime: </label>
-                            <div class="form-field-label form-field">
-                                <input type="text" name="prezime" id="prezime" class="form-field-input">
+                            <div class="form-item">
+                                <label for="about">Prezime: </label>
+                                <div class="form-field-label form-field">
+                                    <input type="text" name="prezime" id="prezime" class="form-field-input">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="content">Korisničko ime:</label>
-                            <div class="form-field-label form-field">
-                                <input type="text" name="username" id="username" class="form-field-input">
-                                <div class="error-message"><?php if (isset($msg)) {
-                                                                echo $msg;
-                                                            } ?></div>
+                            <div class="form-item">
+                                <label for="content">Korisničko ime:</label>
+                                <div class="form-field-label form-field">
+                                    <input type="text" name="username" id="username" class="form-field-input">
+                                    <div class="error-message"><?php if (isset($msg)) {
+                                                                    echo $msg;
+                                                                } ?></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="pass">Lozinka: </label>
-                            <div class="form-field-label form-field">
-                                <input type="password" name="pass" id="pass" class="form-field-input">
+                            <div class="form-item">
+                                <label for="pass">Lozinka: </label>
+                                <div class="form-field-label form-field">
+                                    <input type="password" name="pass" id="pass" class="form-field-input">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-item">
-                            <label for="pphoto">Ponovite lozinku: </label>
-                            <div class="form-field-label form-field">
-                                <input type="password" name="passRep" id="passRep" class="form-field-input">
+                            <div class="form-item">
+                                <label for="pphoto">Ponovite lozinku: </label>
+                                <div class="form-field-label form-field">
+                                    <input type="password" name="passRep" id="passRep" class="form-field-input">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-item">
-                            <button type="submit" name="submit" value="Prijava" id="slanje">Registracija</button>
-                        </div>
-                    </form>
+                            <div class="form-item">
+                                <button type="submit" name="submit" value="Prijava" id="slanje">Registracija</button>
+                            </div>
+                        </form>
+                    </div>
 
-                    <h1 class="margin-top">Prijava</h1>
-                    <form enctype="multipart/form-data" action="" method="POST" class="form-login" name="prijava">
-                        <div class="form-item">
-                            <label for="content" class="white-text">Korisničko ime:</label>
-                            <div class="form-field-label form-field">
-                                <input type="text" name="usernameLogin" id="usernameLogin" class="form-field-input">
+                    <div class="prijava_cont">
+                        <h1 class="margin-top">Prijava</h1>
+                        <form enctype="multipart/form-data" action="" method="POST" class="form-login" name="prijava">
+                            <div class="form-item">
+                                <label for="content" class="white-text">Korisničko ime:</label>
+                                <div class="form-field-label form-field">
+                                    <input type="text" name="usernameLogin" id="usernameLogin" class="form-field-input">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-item">
-                            <span id="porukaPassLogin" class="bojaPoruke"></span>
-                            <label for="pphotoLogin" class="white-text">Lozinka: </label>
-                            <div class="form-field-label form-field">
-                                <input type="password" name="passLogin" id="passLogin" class="form-field-input">
+                            <div class="form-item">
+                                <span id="porukaPassLogin" class="bojaPoruke"></span>
+                                <label for="pphotoLogin" class="white-text">Lozinka: </label>
+                                <div class="form-field-label form-field">
+                                    <input type="password" name="passLogin" id="passLogin" class="form-field-input">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-item">
-                            <button type="submit" name="submitLogin" value="Registracija" id="login">Prijava</button>
-                        </div>
-                    </form>
+                            <div class="form-item">
+                                <button type="submit" name="submitLogin" value="Registracija" id="login">Prijava</button>
+                            </div>
+                        </form>
+                    </div>
+
                 </section>
-            </div>
         </content>
     </main>
     <footer>
