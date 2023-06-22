@@ -17,7 +17,9 @@
 <body>
     <header>
         <h1>L'OBS</h1>
-        <?php include("nav.php") ?>
+        <?php 
+        session_start();
+        include("nav.php") ?>
     </header>
     <hr>
     <main>
