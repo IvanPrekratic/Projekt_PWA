@@ -1,4 +1,4 @@
-<?php 
+<?php
 include 'connect.php'; 
 $picture = $_FILES['picture']['name']; 
 $title=$_POST['title']; 

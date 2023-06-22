@@ -12,8 +12,69 @@
   <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cantata+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="jquery-1.11.0.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+  <script src="js/form-validation.js"></script>
   <title>Le Nouvel Observateur</title>
 </head>
+
+<script>
+  $(function() {
+    $("form[name='unos']").validate({
+      rules: {
+        title: {
+          required: true,
+          minlength: 5,
+          maxlength: 30,
+        },
+        about: {
+          required: true,
+          minlength: 10,
+          maxlength: 100,
+        },
+        content: {
+          required: true,
+        },
+        picture: {
+          required: true,
+        }
+
+      },
+      messages: {
+        title: {
+          required: "Naslov ne smije biti prazan",
+          minlength: "Naslov treba imati više od 6 znakova",
+          maxlength: "Naslov treba imati manje od 30 znakova",
+        },
+        about: {
+          required: "Potrebno je upisati kratki sadrzaj",
+          minlength: "Kratki sadrzaj ne smije biti kraci od 10 znakova",
+          maxLength: "Kratki sadrzaj ne smije biti duzi od 100 znakova",
+        },
+        content: {
+          required: "Potrebno je upisati sadrzaj",
+        },
+        picture: {
+          required: "Potrebno je uploadati sliku",
+        },
+      },
+      highlight: function(element) {
+        $(element).next().addClass("error");
+      },
+      unhighlight: function(element) {
+        $(element).next().removeClass("error");
+      },
+      errorPlacement: function(error, element) {
+        error.addClass("error-message");
+        error.insertAfter(element);
+      },
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+  });
+</script>
 
 <body>
   <header>
@@ -23,6 +84,7 @@
   <hr>
 
   <main>
+    <h1 class="naslov">Unos vijesti</h1>
     <form name="unos" action="insert.php" method="POST" enctype="multipart/form-data" class="form-news">
       <div class="form-item">
         <label for="title">Naslov vijesti</label>

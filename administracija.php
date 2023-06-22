@@ -30,13 +30,13 @@ if(isset($_POST['delete'])) {
       $query = "SELECT slika FROM vijesti WHERE id = $id";
       $result = mysqli_query($dbc, $query);
       $row = mysqli_fetch_assoc($result);
-      $picture = $row['picture'];
+      $picture = $row['slika'];
     }
   
     $query = "UPDATE vijesti SET naslov='$title', sazetak='$about', tekst='$content', slika='$picture', kategorija='$category', arhiva='$archive' WHERE id=$id";
     $query = "UPDATE vijesti SET naslov= ?, sazetak= ?, tekst= ?, slika= ?, kategorija= ?, arhiva= ? WHERE id=$id";
     $stmt = $dbc->prepare($query);
-    $stmt-> bind_param("ssssds", $title, $about, $content, $picture, $category, $archive);
+    $stmt-> bind_param("ssssss", $title, $about, $content, $picture, $category, $archive);
     $stmt->execute();
   }
 
@@ -103,7 +103,7 @@ if(isset($_POST['delete'])) {
         <div class="form-item"> 
         <label for="category">Kategorija vijesti:</label> 
         <div class="form-field"> 
-        <select name="category" id="" class="form-field-textual"> 
+        <select name="category" id="category" class="form-field-textual"> 
         <option value="Sport"'; if ($row['kategorija'] == "Sport") echo ' selected="selected"'; echo '>Sport</option> 
         <option value="Politika"'; if ($row['kategorija'] == "Politika") echo ' selected="selected"'; echo '>Politika</option> 
         </select> 
