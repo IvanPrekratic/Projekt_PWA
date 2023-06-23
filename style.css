@@ -283,3 +283,10 @@ section.section-login{
 .form-item{
     margin-top: 10px;
 }
+.error{
+    color: red;
+}
+.form-field-label{
+    display: flex;
+    flex-direction: column;
+}

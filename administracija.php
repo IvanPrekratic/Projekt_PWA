@@ -6,8 +6,8 @@ define('UPLPATH', 'img/');
 if (isset($_SESSION['username']) && isset($_SESSION['razina'])) {
   $sessionUsername = $_SESSION['username'];
   $sessionRazina = $_SESSION['razina'];
-  echo $sessionRazina;
-  echo $sessionUsername;
+  //echo $sessionRazina;
+  //echo $sessionUsername;
 
   if ($sessionRazina == 0) {
     header("Location: index.php");

@@ -29,7 +29,7 @@
                 <?php
                 include 'connect.php';
                 define('UPLPATH', 'img/');
-                $query = "SELECT * FROM vijesti WHERE arhiva=0 AND kategorija='Politika' LIMIT 3";
+                $query = "SELECT * FROM vijesti WHERE arhiva=0 AND kategorija='Politika' ORDER BY datum DESC LIMIT 3";
                 $result = mysqli_query($dbc, $query);
                 $i = 0;
                 while ($row = mysqli_fetch_array($result)) {
@@ -53,7 +53,7 @@
             <div class="row">
             <?php
                 include 'connect.php';
-                $query = "SELECT * FROM vijesti WHERE arhiva=0 AND kategorija='Sport' LIMIT 3";
+                $query = "SELECT * FROM vijesti WHERE arhiva=0 AND kategorija='Sport' ORDER BY datum DESC LIMIT 3";
                 $result = mysqli_query($dbc, $query);
                 $i = 0;
                 while ($row = mysqli_fetch_array($result)) {

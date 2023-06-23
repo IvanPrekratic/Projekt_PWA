@@ -34,7 +34,7 @@ session_start();
             $kategorija = $_GET['kategorija'];
         }
 
-        $query = "SELECT * FROM vijesti WHERE kategorija = '$kategorija'";
+        $query = "SELECT * FROM vijesti WHERE kategorija = '$kategorija' ORDER BY datum DESC";
         $result = mysqli_query($dbc, $query);
                 $i = 0;
                 echo '<h3 class="naslov-kat">' . $kategorija . '</h3>';

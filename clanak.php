@@ -37,12 +37,13 @@ session_start();
         $query = "SELECT * FROM vijesti WHERE id = $id";
         $result = mysqli_query($dbc, $query);
         $row = mysqli_fetch_array($result);
+        $datum = date('d.n.Y.', strtotime($row['datum']));
         echo '<p class="putanja"' . ">L'Obs > " . $row['kategorija'] . "</p>";
         echo '<h2 class="naslov-clanka">' . $row['naslov'] . '</h2>';
         echo '<img src="img/' . $row['slika'] . '" class="img-clanak">';
         echo '<p class="kratki-opis">' . $row['sazetak'] . '</p>';
         echo '<div class="vrijeme-objave">
-            <p class="vr-obj">Objavljeno ' . $row['datum'] . '</p> </div>';
+            <p class="vr-obj">Objavljeno ' . $datum . '</p> </div>';
         echo '<div class="tekst-clanka">
             <p>' . $row['tekst'] . '</p>
         </div>'

@@ -83,7 +83,7 @@ if (isset($_POST['submitLogin'])) {
                 header("Location: index.php");
                 exit();
             } else {
-                print 'Provjera nije uspješna';
+                //print 'Provjera nije uspješna';
                 $msg = 'Pogrešno korisničko ime ili lozinka.';
             }
         }
@@ -108,6 +108,9 @@ if (isset($_POST['submitLogin'])) {
     <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cantata+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-1.11.0.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <title>Le Nouvel Observateur</title>
 </head>
 
@@ -152,9 +155,9 @@ if (isset($_POST['submitLogin'])) {
                                 required: "Prezime ne smije biti prazno",
                             },
                             username: {
-                                required: "Korisnicko ime ne smije biti prazno",
-                                minlength: "Korisnicko ime ne smije biti krace od 6 znakova",
-                                maxlength: "Korisnicko ime ne smije biti duze od 15 znakova",
+                                required: "Korisničko ime ne smije biti prazno",
+                                minlength: "Korisničko ime ne smije biti krace od 6 znakova",
+                                maxlength: "Korisničko ime ne smije biti duze od 15 znakova",
                             },
                             pass: {
                                 required: "Lozinka ne smije biti prazna",
@@ -193,7 +196,7 @@ if (isset($_POST['submitLogin'])) {
                         },
                         messages: {
                             usernameLogin: {
-                                required: "Korisnicko ime ne smije biti prazno",
+                                required: "Korisničko ime ne smije biti prazno",
                             },
                             passLogin: {
                                 required: "Lozinka ne smije biti prazna",
@@ -224,6 +227,7 @@ if (isset($_POST['submitLogin'])) {
                                 <label for="title">Ime: </label>
                                 <div class="form-field-label form-field">
                                     <input type="text" name="ime" id="ime" class="form-field-input">
+                                    <span id=""></span>
                                 </div>
                             </div>
                             <div class="form-item">
